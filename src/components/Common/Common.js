@@ -17,6 +17,7 @@ export const commonCSS = css`
   flex: ${({ flex }) => flex};
   color: ${({ color }) => color};
   place-items: ${({ placeItems }) => placeItems};
+  place-content: ${({ placeContent }) => placeContent};
   border: ${({ border }) => border};
   padding: ${({ padding }) => padding};
   margin: ${({ margin }) => margin};
