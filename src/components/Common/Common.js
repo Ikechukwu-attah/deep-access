@@ -24,6 +24,7 @@ export const commonCSS = css`
   margin-top: ${({ marginTop }) => marginTop};
   margin-left: ${({ marginLeft }) => marginLeft};
   width: ${({ width }) => width};
+  inset: ${({ inset }) => inset};
   min-width: ${({ minWidth }) => minWidth};
   height: ${({ height }) => height};
   border-radius: ${({ borderRadius }) => borderRadius};
