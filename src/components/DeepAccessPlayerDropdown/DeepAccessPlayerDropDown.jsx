@@ -6,7 +6,7 @@ import { MdOutlineSpeed } from "react-icons/md";
 import { RiUserVoiceFill } from "react-icons/ri";
 import Select, { components } from "react-select";
 
-const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
+const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
   const [showSpeedDropDown, setShowSpeedDropDown] = useState(false);
   const [showSpeed, setShowSpeed] = useState(true);
   const [showVoiceDropdown, setShowVoiceDropdown] = useState(false);
@@ -32,8 +32,9 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
       ...provided,
       //   backgroundColor: "#fff !important",
       //   color: "blue !important",
-      fontSize: "1rem !important",
-      fontWeight: "700",
+      //   fontSize: "1rem !important",
+      fontWeight: "400",
+      fontSize: "1.2rem",
 
       //   border: "1px solid hsl(0, 0%, 80%)",
       border: state.isFocused
@@ -56,6 +57,13 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
       //   color: state.isSelected ? "#fff" : "black",
       //   fontWeight: state.isSelected ? "700" : "500",
       //   fontSize: state.isSelected ? "2rem" : "2rem",
+      fontSize: "1.2rem",
+    }),
+
+    input: (provided, state) => ({
+      ...provided,
+
+      minWidth: "7rem",
     }),
   };
 
@@ -95,6 +103,9 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
             placeholder="Speed"
             className="select-dropdown"
             styles={customStyles}
+            value={speedOptions.find(
+              (option) => option.value === playbackSpeed.toString()
+            )}
             onChange={(e) => {
               setPlaybackSpeed(e.value);
 

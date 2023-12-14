@@ -76,7 +76,10 @@ const DeepPlayer = () => {
         )}
 
         {showAppFeatures && (
-          <DeepAccessPlayerDropDown setPlaybackSpeed={setPlaybackSpeed} />
+          <DeepAccessPlayerDropDown
+            setPlaybackSpeed={setPlaybackSpeed}
+            playbackSpeed={playbackSpeed}
+          />
         )}
       </StyledWrapper>
     </StyledContainer>
