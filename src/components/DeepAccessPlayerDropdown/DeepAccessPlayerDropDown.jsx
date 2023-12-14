@@ -27,6 +27,38 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
     { value: "2x", label: "Female - UK" },
   ];
 
+  const customStyles = {
+    control: (provided, state) => ({
+      ...provided,
+      //   backgroundColor: "#fff !important",
+      //   color: "blue !important",
+      fontSize: "1rem !important",
+      fontWeight: "700",
+
+      //   border: "1px solid hsl(0, 0%, 80%)",
+      border: state.isFocused
+        ? "1px solid hsl(0, 0%, 80%)"
+        : "1px solid hsl(0, 0%, 80%)",
+      boxShadow: state.isFocused
+        ? "0 0 0 1px 1px solid hsl(0, 0%, 80%)"
+        : "none",
+      "&:hover": {
+        border: state.isFocused
+          ? "1px solid hsl(0, 0%, 80%)"
+          : "1px solid hsl(0, 0%, 80%)",
+      },
+    }),
+
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: "1px solid gray",
+      //   backgroundColor: state.isSelected ? "blue" : "#F4F7FF",
+      //   color: state.isSelected ? "#fff" : "black",
+      //   fontWeight: state.isSelected ? "700" : "500",
+      //   fontSize: state.isSelected ? "2rem" : "2rem",
+    }),
+  };
+
   return (
     <StyledContainer
       display="flex"
@@ -35,6 +67,7 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
       position="absolute"
       top="80px"
       right="17px"
+      //   width="100%"
     >
       <StyledWrapper>
         {showSpeed && (
@@ -60,6 +93,8 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
           <Select
             options={speedOptions}
             placeholder="Speed"
+            className="select-dropdown"
+            styles={customStyles}
             onChange={(e) => {
               setPlaybackSpeed(e.value);
 
@@ -90,7 +125,12 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed }) => {
         )}
 
         {showVoiceDropdown && (
-          <Select options={voiceOptions} placeholder="Voices" />
+          <Select
+            options={voiceOptions}
+            styles={customStyles}
+            placeholder="Voices"
+            className="select-dropdown"
+          />
         )}
       </StyledWrapper>
     </StyledContainer>
