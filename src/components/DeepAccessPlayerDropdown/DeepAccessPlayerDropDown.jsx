@@ -5,8 +5,19 @@ import { StyledText } from "../Common/StyledText";
 import { MdOutlineSpeed } from "react-icons/md";
 import { RiUserVoiceFill } from "react-icons/ri";
 import Select, { components } from "react-select";
+import Angelina_AU from "../../Audios/Angelina_AU.mp3";
+import Bosco_SA from "../../Audios/Bosco_SA.mp3";
+import Jalia_SA from "../../Audios/Jalia_SA.mp3";
+import Jeff_AU from "../../Audios/Jeff_AU.mp3";
+import Mike_UK from "../../Audios/Mike_UK.mp3";
+import Xavier_US from "../../Audios/Xavier_US.mp3";
 
-const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
+const DeepAccessPlayerDropDown = ({
+  setPlaybackSpeed,
+  playbackSpeed,
+  humanVoice,
+  setHumanVoice,
+}) => {
   const [showSpeedDropDown, setShowSpeedDropDown] = useState(false);
   const [showSpeed, setShowSpeed] = useState(true);
   const [showVoiceDropdown, setShowVoiceDropdown] = useState(false);
@@ -21,10 +32,10 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
   ];
 
   const voiceOptions = [
-    { value: "0.5x", label: "Male - US" },
-    { value: "1x", label: "Female - US" },
-    { value: "1.5x", label: "Male - UK" },
-    { value: "2x", label: "Female - UK" },
+    { value: Xavier_US, label: "Male - US" },
+    { value: Jalia_SA, label: "Female - US" },
+    { value: Mike_UK, label: "Male - UK" },
+    { value: Angelina_AU, label: "Female - UK" },
   ];
 
   const customStyles = {
@@ -82,6 +93,7 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
           <StyledWrapper
             display="flex"
             gap="1rem"
+            background="#fff"
             alignItems="center"
             cursor="pointer"
             border="1px solid hsl(0, 0%, 80%)"
@@ -102,6 +114,7 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
             options={speedOptions}
             placeholder="Speed"
             className="select-dropdown"
+            menuPlacement="top"
             styles={customStyles}
             value={speedOptions.find(
               (option) => option.value === playbackSpeed.toString()
@@ -124,6 +137,7 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
             cursor="pointer"
             border="1px solid hsl(0, 0%, 80%)"
             padding="0.5rem"
+            background="#fff"
             borderRadius="5px"
             onClick={() => {
               setShowVoiceDropdown(true);
@@ -141,6 +155,10 @@ const DeepAccessPlayerDropDown = ({ setPlaybackSpeed, playbackSpeed }) => {
             styles={customStyles}
             placeholder="Voices"
             className="select-dropdown"
+            onChange={(e) => setHumanVoice(e.value)}
+            value={voiceOptions.find(
+              (voice) => voice.value === humanVoice.toString()
+            )}
           />
         )}
       </StyledWrapper>

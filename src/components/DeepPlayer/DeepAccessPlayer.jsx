@@ -13,6 +13,7 @@ const DeepPlayer = () => {
   const [showAppFeatures, setShowAppFeatures] = useState(false);
   const playerRef = useRef(null);
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
+  const [humanVoice, setHumanVoice] = useState(Florence_US);
 
   useEffect(() => {
     const player = playerRef.current;
@@ -24,24 +25,30 @@ const DeepPlayer = () => {
 
   return (
     <StyledContainer
-      // width="100%"
+      width="100%"
       display="flex"
       alignItems="center"
       justifyContent="center"
-      marginTop="4rem"
+      position="relative"
+      zIndex="1000"
+
+      // marginTop="4rem"
     >
       <StyledWrapper
-        width="50%"
+        width="100%"
         display="flex"
         alignItems="center"
         position="relative"
+        background="#fff"
+        borderRadius="5px"
+        padding="0 0 0 0.5rem"
         // gap="4rem"
         boxShadow="0 0 3px 0 rgba(0, 0, 0, 0.2)"
         //padding="0 1rem 0 0"
       >
         <StyledDeepPlayer
           ref={playerRef}
-          src={Florence_US}
+          src={humanVoice}
           onPlay={(e) => console.log("onPlay")}
           layout="horizontal-reverse"
           loop={false}
@@ -79,6 +86,8 @@ const DeepPlayer = () => {
           <DeepAccessPlayerDropDown
             setPlaybackSpeed={setPlaybackSpeed}
             playbackSpeed={playbackSpeed}
+            humanVoice={humanVoice}
+            setHumanVoice={setHumanVoice}
           />
         )}
       </StyledWrapper>

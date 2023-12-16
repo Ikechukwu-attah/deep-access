@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
  
- *{
+ /* *{
   ::-webkit-scrollbar {
     width: 0.5rem;
     height:0.5rem;
@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-thumb:hover {
     background: ${({ theme }) => theme.colors.primaryColor};
   }
- }
+ } */
  *,
   *::after,
   *::before {
