@@ -7,7 +7,11 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./Global";
 import { Theme } from "./Theme";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const widgetContainer = document.getElementById("widget-container");
+const root = widgetContainer
+  ? ReactDOM.createRoot(widgetContainer)
+  : ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={Theme}>

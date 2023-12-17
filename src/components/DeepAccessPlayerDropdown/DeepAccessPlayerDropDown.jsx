@@ -5,12 +5,7 @@ import { StyledText } from "../Common/StyledText";
 import { MdOutlineSpeed } from "react-icons/md";
 import { RiUserVoiceFill } from "react-icons/ri";
 import Select, { components } from "react-select";
-import Angelina_AU from "../../Audios/Angelina_AU.mp3";
-import Bosco_SA from "../../Audios/Bosco_SA.mp3";
-import Jalia_SA from "../../Audios/Jalia_SA.mp3";
-import Jeff_AU from "../../Audios/Jeff_AU.mp3";
-import Mike_UK from "../../Audios/Mike_UK.mp3";
-import Xavier_US from "../../Audios/Xavier_US.mp3";
+import { StyledSpan } from "../Common/StyledSpan";
 
 const DeepAccessPlayerDropDown = ({
   setPlaybackSpeed,
@@ -19,6 +14,17 @@ const DeepAccessPlayerDropDown = ({
   setHumanVoice,
 }) => {
   const [showSpeedDropDown, setShowSpeedDropDown] = useState(false);
+  const Angelina_AU =
+    "https://comfy-quokka-558ae5.netlify.app/Audios/Angelina_AU.mp3";
+  const Bosco_SA =
+    "https://comfy-quokka-558ae5.netlify.app/Audios/Bosco_SA.mp3";
+  const Jalia_SA =
+    "https://comfy-quokka-558ae5.netlify.app/Audios/Jalia_SA.mp3";
+  const Jeff_AU = "https://comfy-quokka-558ae5.netlify.app/Audios/Jeff_AU.mp3";
+  const Mike_UK = "https://comfy-quokka-558ae5.netlify.app/Audios/Mike_UK.mp3";
+  const Xavier_US =
+    "https://comfy-quokka-558ae5.netlify.app/Audios/Xavier_US.mp3";
+
   const [showSpeed, setShowSpeed] = useState(true);
   const [showVoiceDropdown, setShowVoiceDropdown] = useState(false);
   const [showVoice, setShowVoice] = useState(true);
@@ -42,10 +48,10 @@ const DeepAccessPlayerDropDown = ({
     control: (provided, state) => ({
       ...provided,
       //   backgroundColor: "#fff !important",
-      //   color: "blue !important",
-      //   fontSize: "1rem !important",
+      // color: "blue !important",
+      // fontSize: "1rem !important",
       fontWeight: "400",
-      fontSize: "1.2rem",
+      fontSize: "1.2rem !important",
 
       //   border: "1px solid hsl(0, 0%, 80%)",
       border: state.isFocused
@@ -63,18 +69,27 @@ const DeepAccessPlayerDropDown = ({
 
     option: (provided, state) => ({
       ...provided,
-      borderBottom: "1px solid gray",
-      //   backgroundColor: state.isSelected ? "blue" : "#F4F7FF",
-      //   color: state.isSelected ? "#fff" : "black",
+      borderBottom: "1px solid gray !important",
+      cursor: "pointer !important",
+      backgroundColor: state.isSelected
+        ? "blue !important"
+        : state.isFocused
+        ? "lightgray !important"
+        : "#F4F7FF !important",
+      color: state.isSelected ? "#fff !important" : "black !important",
+      ":hover": {
+        // Hover state styles
+        backgroundColor: "lightgray  !important",
+        color: "black !important",
+      },
       //   fontWeight: state.isSelected ? "700" : "500",
-      //   fontSize: state.isSelected ? "2rem" : "2rem",
-      fontSize: "1.2rem",
+      fontSize: "1.2rem !important ",
     }),
 
     input: (provided, state) => ({
       ...provided,
 
-      minWidth: "7rem",
+      minWidth: "7rem !important",
     }),
   };
 
@@ -104,8 +119,10 @@ const DeepAccessPlayerDropDown = ({
               setShowSpeed(false);
             }}
           >
-            <MdOutlineSpeed size={22} />
-            <StyledText Fs="1.5rem">Speed</StyledText>
+            <MdOutlineSpeed size={22} color="gray !important" />
+            <StyledSpan Fs="1.5rem !important" color="#000 !important">
+              Speed
+            </StyledSpan>
           </StyledWrapper>
         )}
 
@@ -114,7 +131,6 @@ const DeepAccessPlayerDropDown = ({
             options={speedOptions}
             placeholder="Speed"
             className="select-dropdown"
-            menuPlacement="top"
             styles={customStyles}
             value={speedOptions.find(
               (option) => option.value === playbackSpeed.toString()
@@ -144,8 +160,10 @@ const DeepAccessPlayerDropDown = ({
               setShowVoice(false);
             }}
           >
-            <RiUserVoiceFill size={22} />
-            <StyledText Fs="1.5rem">Voice</StyledText>
+            <RiUserVoiceFill size={22} color="gray !important" />
+            <StyledSpan Fs="1.5rem !important" color="#000 !important">
+              Voice
+            </StyledSpan>
           </StyledWrapper>
         )}
 

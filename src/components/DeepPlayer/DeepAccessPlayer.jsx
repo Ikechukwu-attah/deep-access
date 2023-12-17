@@ -7,9 +7,11 @@ import { StyledWrapper } from "../Common/StyledWrapper";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdOutlineClose } from "react-icons/md";
 import DeepAccessPlayerDropDown from "../DeepAccessPlayerDropdown/DeepAccessPlayerDropDown";
-import Florence_US from "../../untitled folder/Florence_US.mp3";
+// import Florence_US from "../../Audios/Florence_US.mp3";
 
 const DeepPlayer = () => {
+  const Florence_US =
+    "https://comfy-quokka-558ae5.netlify.app/Audios/Florence_US.mp3";
   const [showAppFeatures, setShowAppFeatures] = useState(false);
   const playerRef = useRef(null);
   const [playbackSpeed, setPlaybackSpeed] = useState(1.0);
@@ -58,6 +60,7 @@ const DeepPlayer = () => {
           width="95%"
           border="none"
           boxShadow="none"
+          autoPlay={false}
         />
 
         {showAppFeatures ? (
@@ -78,7 +81,7 @@ const DeepPlayer = () => {
             right="17px"
             onClick={() => setShowAppFeatures(true)}
           >
-            <IoSettingsOutline size={22} />
+            <IoSettingsOutline size={22} color="gray" />
           </StyledContainer>
         )}
 

@@ -24,18 +24,18 @@ export const GlobalStyles = createGlobalStyle`
  *,
   *::after,
   *::before {
-      margin:0;
-      padding:0;
-      box-sizing:inherit;
+      margin:0 ;
+      padding:0 ;
+      box-sizing:inherit !important;
   }
   html{
-      font-size:62.5%;
+      font-size:62.5% ;
   }
 body {
   font-family: 'Jost', sans-serif;
-   font-style: normal;
-    box-sizing:border-box;
-    color:#000000;
+   font-style: normal !important;
+    box-sizing:border-box !important;
+    color:#000000 !important;
     /* background-color:#F3EFE9; */
    
       @media(max-width: 568px) {
