@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { StyledContainer } from "../Common/StyledContainer";
 import { StyledWrapper } from "../Common/StyledWrapper";
 import { StyledText } from "../Common/StyledText";
@@ -24,6 +25,13 @@ const DeepAccessPlayerDropDown = ({
   const Mike_UK = "https://comfy-quokka-558ae5.netlify.app/Audios/Mike_UK.mp3";
   const Xavier_US =
     "https://comfy-quokka-558ae5.netlify.app/Audios/Xavier_US.mp3";
+
+  const BlackVoiceIcon = styled(RiUserVoiceFill)`
+    color: #000;
+  `;
+  const BlackSpeedIcon = styled(MdOutlineSpeed)`
+    color: #000;
+  `;
 
   const [showSpeed, setShowSpeed] = useState(true);
   const [showVoiceDropdown, setShowVoiceDropdown] = useState(false);
@@ -119,8 +127,9 @@ const DeepAccessPlayerDropDown = ({
               setShowSpeed(false);
             }}
           >
-            <MdOutlineSpeed size={22} color="gray !important" />
-            <StyledSpan Fs="1.5rem !important" color="#000 !important">
+            {/* <MdOutlineSpeed color="#000 !important" /> */}
+            <BlackSpeedIcon size={22} />
+            <StyledSpan Fs="1.5rem !important" color="#000!important">
               Speed
             </StyledSpan>
           </StyledWrapper>
@@ -160,7 +169,8 @@ const DeepAccessPlayerDropDown = ({
               setShowVoice(false);
             }}
           >
-            <RiUserVoiceFill size={22} color="gray !important" />
+            {/* <RiUserVoiceFill size={22} color="#000 !important" /> */}
+            <BlackVoiceIcon size={22} />
             <StyledSpan Fs="1.5rem !important" color="#000 !important">
               Voice
             </StyledSpan>

@@ -32,10 +32,10 @@ export const GlobalStyles = createGlobalStyle`
       font-size:62.5% ;
   }
 body {
-  font-family: 'Jost', sans-serif;
+  /* font-family: 'Jost', sans-serif; */
    font-style: normal !important;
     box-sizing:border-box !important;
-    color:#000000 !important;
+    /* color:#000000; */
     /* background-color:#F3EFE9; */
    
       @media(max-width: 568px) {
